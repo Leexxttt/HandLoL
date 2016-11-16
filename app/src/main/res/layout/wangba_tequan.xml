@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+   >
+
+    <ImageView
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/tab_news_checked"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="附近网吧特权"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/find_hot_tips"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        />
+
+</LinearLayout>

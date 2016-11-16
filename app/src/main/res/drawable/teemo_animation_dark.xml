@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="50" android:drawable="@drawable/teemo_1" />
+    <item android:duration="50" android:drawable="@drawable/teemo_2" />
+    <item android:duration="50" android:drawable="@drawable/teemo_3" />
+    <item android:duration="50" android:drawable="@drawable/teemo_4" />
+    <item android:duration="100" android:drawable="@drawable/teemo_5" />
+    <item android:duration="50" android:drawable="@drawable/teemo_6" />
+    <item android:duration="50" android:drawable="@drawable/teemo_7" />
+    <item android:duration="50" android:drawable="@drawable/teemo_8" />
+</animation-list>

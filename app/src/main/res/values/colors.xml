@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="btn_pressed_color">#ffa68a52</color>
+    <color name="btn_test">#f6f4f2</color>
+    <color name="text_normal">#000000</color>
+    <color name="progress_normal">#000000</color>
+    <color name="myred_color">#FF0000</color>
+    <color name="blue_color">#00FF00</color>
+    <color name="green_color">#0000FF</color>
+    <color name="transparence">@android:color/transparent</color>
+    <color name="translucence">#80000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="color_5">#ff959494</color>
+    <color name="common_yellow_color">#ffd0ac66</color>
+    <color name="common_background">#ffeeeff0</color>
+    <color name="srach_edit">#33000000</color>
+    <color name="color_11">#ff00a585</color>
+    <color name="main_color_pressed">#ff366c9b</color>
+    <color name="color_calendar_solarterm">#cc00cc33</color>
+    <color name="rune_quintessence_rect">#ffff7418</color>
+    <color name="round_blue_press">#ff366c9b</color>
+    <color name="first_win_color">#ff3e4673</color>
+    <color name="normal_bkg">#ff1c201f</color>
+    <color name="notice_board_bg">#bb000000</color>
+</resources>

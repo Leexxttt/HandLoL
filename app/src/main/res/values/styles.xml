@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="SplashAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="BaseAppTheme" parent="AppTheme.Base">
+        <item name="colorPrimary">@color/transparence</item>    <!-- 状态栏 -->
+        <item name="colorPrimaryDark">@color/transparence</item> <!-- toolbar -->
+        <item name="colorAccent">@color/transparence</item>  <!-- 重点 -->
+    </style>
+    <style name="AppTheme2" parent="BaseAppTheme"/>
+
+    <style name="TopicUserSexAge" parent="@style/TopicUserTier">
+        <item name="android:background">@drawable/res_sex_man</item>
+        <item name="android:drawableLeft">@drawable/peoplenearby_man</item>
+        <item name="android:drawablePadding">1.0dip</item>
+    </style>
+    <style name="TopicUserTier">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/res_hero_fuyin</item>
+        <item name="android:paddingLeft">2.0dip</item>
+        <item name="android:paddingRight">2.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+        <item name="android:text">@string/debug_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="SlideMenuItem">
+        <item name="android:textSize">@dimen/text_size_3</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/menu_item_selector</item>
+        <item name="android:paddingLeft">20.0dip</item>
+        <item name="android:paddingTop">15.0dip</item>
+        <item name="android:paddingBottom">15.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">0.0dip</item>
+        <item name="android:drawablePadding">18.0dip</item>
+    </style>
+    <style name="SimpleLoadState">
+        <item name="android:textSize">@dimen/text_size_7</item>
+        <item name="android:textColor">@color/color_5</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableTop">@drawable/teemo_animation</item>
+        <item name="android:drawablePadding">5.0dip</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+</resources>

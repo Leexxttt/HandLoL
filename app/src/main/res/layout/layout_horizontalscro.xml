@@ -7,8 +7,8 @@
 
     <com.lxt.handlol.widget.CircleImageView
         android:id="@+id/club_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@mipmap/nearbydefaulthead" />
 
     <TextView

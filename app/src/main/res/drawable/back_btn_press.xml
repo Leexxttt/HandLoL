@@ -5,5 +5,5 @@
 <size android:height="4dp"
     android:width="30dp"/>
     <corners android:radius="2dp"/>
-    <solid android:color="@color/white"/>
+    <solid android:color="@color/btn_pressed_color"/>
 </shape>

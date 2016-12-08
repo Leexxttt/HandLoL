@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="@dimen/slide_menu_width"
     android:layout_height="match_parent"
-    android:background="@mipmap/slide_menu_bg"
     >
 
     <ImageView
@@ -106,77 +105,4 @@
         android:layout_marginLeft="20.0dip"
         android:background="#33ffffff" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inner_line"
-        android:layout_marginTop="@dimen/slide_menus_top"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/menu_friend_cycle"
-            style="@style/SlideMenuItem"
-            android:drawableLeft="@drawable/menu_friend_cycle"
-            android:tag="mta_moments"
-            android:text="我的动态" />
-
-        <TextView
-            android:id="@+id/menu_publish"
-            style="@style/SlideMenuItem"
-            android:drawableLeft="@drawable/menu_publish"
-            android:tag="mta_publishes"
-            android:text="我的发表"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/menu_download"
-            style="@style/SlideMenuItem"
-            android:drawableLeft="@drawable/menu_download"
-            android:tag="mta_downloads"
-            android:text="我的下载" />
-
-        <TextView
-            android:id="@+id/menu_subscribe"
-            style="@style/SlideMenuItem"
-            android:drawableLeft="@drawable/menu_subscribe"
-            android:tag="mta_subscribes"
-            android:text="我的订阅" />
-
-        <TextView
-            android:id="@+id/menu_favorite"
-            style="@style/SlideMenuItem"
-            android:drawableLeft="@drawable/menu_favorite"
-            android:tag="mta_favorites"
-            android:text="我的收藏" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_alignParentEnd="true"
-        android:id="@+id/menu_setting"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/menu_item_selector"
-        android:drawableLeft="@drawable/menu_setting"
-        android:drawablePadding="6.0dip"
-        android:gravity="center_vertical"
-        android:includeFontPadding="false"
-        android:paddingBottom="17.0dip"
-        android:paddingLeft="20.0dip"
-        android:paddingTop="17.0dip"
-        android:tag="mta_setting"
-        android:text="设置"
-        android:textColor="@color/color_5"
-        android:textSize="14sp"
-        android:layout_alignParentRight="true" />
-
-    <View
-        android:id="@+id/setting_red_point"
-        android:layout_width="8.0dip"
-        android:layout_height="8.0dip"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="31.0dip"
-        android:layout_marginLeft="73.0dip"
-        android:background="@drawable/setting_round_red"
-        android:visibility="gone" />
 </RelativeLayout>

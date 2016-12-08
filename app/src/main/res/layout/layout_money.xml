@@ -1,6 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/id_stickynavlayout_innerscrollview"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+   <TextView
+       android:id="@+id/yuer"
+       android:padding="8dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="余额"
+       android:textColor="#000000"
+       android:textSize="18sp"
+       />
+        <TextView
+            android:id="@+id/dianquan"
+            android:layout_toRightOf="@id/yuer"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点券"
+            android:textSize="16sp"
+            android:textColor="@color/btn_pressed_color"
 
+            />
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/dianquan"
+            android:id="@+id/dianquanmoney"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/btn_pressed_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+
+            />
+        <TextView
+            android:id="@+id/money"
+            android:layout_toRightOf="@id/dianquanmoney"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金币"
+            android:textSize="16sp"
+            android:textColor="@color/btn_pressed_color"
+
+            />
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/money_num"
+            android:layout_toRightOf="@id/money"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/btn_pressed_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="354"
+
+            />
+        <TextView
+            android:id="@+id/zichan"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="资产记录"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true" />
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrows_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+<include layout="@layout/view2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/left_icon"/>
+        <TextView
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="拥有的英雄(74/133)"
+            />
+        <TextView
+            android:id="@+id/show_all_hero"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看全部"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true" />
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrows_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+        <ImageView
+            android:src="@mipmap/nearbydefaulthead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp" />
+        <ImageView
+            android:src="@mipmap/nearbydefaulthead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp" />
+        <ImageView
+            android:src="@mipmap/nearbydefaulthead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp" />
+        <ImageView
+            android:src="@mipmap/nearbydefaulthead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp" />
+        <ImageView
+            android:src="@mipmap/nearbydefaulthead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp" />
+    </LinearLayout>
+    <include layout="@layout/view2" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/left_icon"/>
+        <TextView
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="拥有的皮肤(24/720)"
+            />
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看全部"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true" />
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/arrows_gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+        <ImageView
+            android:src="@mipmap/slide_menu_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp" />
+        <ImageView
+            android:src="@mipmap/slide_menu_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp" />
+        <ImageView
+            android:src="@mipmap/slide_menu_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp" />
+        <ImageView
+            android:src="@mipmap/slide_menu_bg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="130dp" />
+    </LinearLayout>
 </LinearLayout>

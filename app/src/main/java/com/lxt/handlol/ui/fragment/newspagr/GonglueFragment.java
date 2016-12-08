@@ -2,6 +2,7 @@ package com.lxt.handlol.ui.fragment.newspagr;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
 
 import com.lxt.handlol.R;
 import com.lxt.handlol.adapter.recycleview.RecycleGonglueAdapter;
@@ -46,7 +47,8 @@ public class GonglueFragment extends BaseFragment2 {
                                    if (mainContent.getList() == null) {
                                        LogUtil.e("加载失败");
                                    } else {
-                                       LogUtil.e("加载成功");
+                                       progressbar.setVisibility(View.INVISIBLE);
+                                       loadfail.setVisibility(View.INVISIBLE);
                                        next_page = mainContent.getNext();
                                        listBean = mainContent.getList();
                                        LinearLayoutManager manager=new LinearLayoutManager(getContext());
@@ -67,12 +69,27 @@ public class GonglueFragment extends BaseFragment2 {
                                @Override
                                public void call(Throwable throwable) {
                                    LogUtil.e("再一次加载失败啦");
+                                   initEmptyView();
                                }
                            }
                 );
 
     }
+    private void initEmptyView() {
+        //页面加载失败要加载的页面
+        progressbar.setVisibility(View.INVISIBLE);
+        loadfail.setVisibility(View.VISIBLE);
+        loadfail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.e("点击重新加载");
+                progressbar.setVisibility(View.VISIBLE);
+                getInfo();
 
+            }
+        });
+
+    }
     private void loadmore(final int currentPage) {
         RetrofitHelper.builder().getGonglue().getGonglueInfo(next_page)
                 .subscribeOn(Schedulers.io())

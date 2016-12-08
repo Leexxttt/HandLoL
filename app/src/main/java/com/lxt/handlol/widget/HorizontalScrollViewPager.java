@@ -51,6 +51,8 @@ public class HorizontalScrollViewPager extends ViewPager {
 						// 第一个页面
 						// 请求父控件及祖宗控件拦截事件
 						getParent().requestDisallowInterceptTouchEvent(false);
+					}else{
+						getParent().requestDisallowInterceptTouchEvent(true);
 					}
 				} else {
 					// 向左滑动

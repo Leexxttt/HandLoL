@@ -2,7 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff0000"
     >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridView
+            android:layout_marginTop="43dp"
+            android:id="@+id/week_free0"
+            android:numColumns="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </GridView>
+
+       <LinearLayout
+           android:layout_marginLeft="8dp"
+           android:layout_marginRight="8dp"
+           android:background="@drawable/free_week_bg"
+           android:layout_marginTop="10dp"
+           android:layout_width="match_parent"
+           android:gravity="center"
+           android:layout_height="33dp">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="更新时间：每周五中午"
+               android:textColor="@color/white"
+               android:textSize="15sp"
+               />
+       </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>

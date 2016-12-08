@@ -54,6 +54,8 @@ public class YuleFragment extends BaseFragment2 {
                         if (yuleBean.getList() == null) {
                             LogUtil.e("加载失败");
                         } else {
+                            progressbar.setVisibility(View.INVISIBLE);
+                            loadfail.setVisibility(View.INVISIBLE);
                             LogUtil.e("加载成功");
                             next_page = yuleBean.getNext();
                             yulelist= yuleBean.getList();
@@ -75,11 +77,27 @@ public class YuleFragment extends BaseFragment2 {
                     @Override
                     public void call(Throwable throwable) {
                         LogUtil.e("娱乐页面加载失败");
+                        initEmptyView();
                     }
                 });
 
     }
 
+    private void initEmptyView() {
+        //页面加载失败要加载的页面
+        progressbar.setVisibility(View.INVISIBLE);
+        loadfail.setVisibility(View.VISIBLE);
+        loadfail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.e("点击重新加载");
+                progressbar.setVisibility(View.VISIBLE);
+                getInfo();
+
+            }
+        });
+
+    }
     private void loadmore(final int currentPage) {
         RetrofitHelper.builder().getYuleServices().getYuleinfo(next_page)
                 .subscribeOn(Schedulers.io())

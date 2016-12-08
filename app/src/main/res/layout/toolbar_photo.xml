@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:id="@+id/round_header"
-    android:layout_width="38dp"
-    android:layout_height="38dp"
+    android:layout_width="35dp"
+    android:layout_height="35dp"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:layout_centerInParent="true"
@@ -10,8 +10,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <com.lxt.handlol.widget.CircleImageView
         android:id="@+id/touxiang"
-        android:layout_width="33dp"
-        android:layout_height="33dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
         android:src="@mipmap/nearbydefaulthead" />
 </FrameLayout>

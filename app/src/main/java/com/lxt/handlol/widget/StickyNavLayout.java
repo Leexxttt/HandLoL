@@ -42,7 +42,7 @@ public class StickyNavLayout extends LinearLayout {
 	private boolean mDragging;
 
 	private boolean isInControl = false;
-
+	private boolean showholeTop=true;
 	public StickyNavLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setOrientation(LinearLayout.VERTICAL);
@@ -91,7 +91,7 @@ public class StickyNavLayout extends LinearLayout {
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		//head的高度
-		mTopViewHeight = mTop.getMeasuredHeight()- DisplayUtil.dp2px(getContext(),50);
+		mTopViewHeight = mTop.getMeasuredHeight()- DisplayUtil.dp2px(getContext(),65);
 	}
 
 	///事件分发
@@ -109,7 +109,13 @@ public class StickyNavLayout extends LinearLayout {
 				getCurrentScrollView();
 				 if (mInnerScrollView instanceof RecyclerView) {
 					RecyclerView lv = (RecyclerView) mInnerScrollView;
+					 if(lv==null){
+						 break;
+					 }
 					LinearLayoutManager layoutManager = (LinearLayoutManager) lv.getLayoutManager();
+					 if(layoutManager==null){
+						 break;
+					 }
 					int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
 					View c=lv.getChildAt(firstVisibleItemPosition);
 					if (!isInControl && c != null && c.getTop() == 0 && isTopHidden
@@ -159,6 +165,9 @@ public class StickyNavLayout extends LinearLayout {
 					if (mInnerScrollView instanceof RecyclerView) {
 						RecyclerView lv = (RecyclerView) mInnerScrollView;
 						LinearLayoutManager layoutManager = (LinearLayoutManager) lv.getLayoutManager();
+						if(layoutManager==null){
+							break;
+						}
 						int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
 						View c=lv.getChildAt(firstVisibleItemPosition);
 						/**
@@ -166,11 +175,11 @@ public class StickyNavLayout extends LinearLayout {
 						 * 1：top没有隐藏目的是要将top隐藏起来，滑动的是外面的view
 						 * 2:viewpager中的recyclerview的item的第一个item可见，继续向下滑就是要显示出top所以移动的也是外面的view
 						 */
+						getParent().requestDisallowInterceptTouchEvent(true);
 						if (!isTopHidden || //
 								(c != null //
 										&& c.getTop() == 0//
 										&& isTopHidden && dy > 0)) {
-
 							initVelocityTrackerIfNotExists();
 							mVelocityTracker.addMovement(ev);
 							mLastY = y;
@@ -215,6 +224,7 @@ public class StickyNavLayout extends LinearLayout {
 	}
 	@Override
 	public void scrollTo(int x, int y) {
+		LogUtil.e("这是scrollTo中的y"+y);
 		if (y < 0) {
 			y = 0;
 		}
@@ -224,14 +234,7 @@ public class StickyNavLayout extends LinearLayout {
 		if (y != getScrollY()) {
 			super.scrollTo(x, y);
 		}
-
 		isTopHidden = getScrollY()== mTopViewHeight;
-//		int i = getScrollY() ;
-//		if(i==mTopViewHeight-40){
-//			isTopHidden=true;
-//		}else{
-//			isTopHidden=false;
-//		}
 
 	}
 

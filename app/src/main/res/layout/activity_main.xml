@@ -1,59 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerlayout"
    >
-    <android.support.design.widget.AppBarLayout
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <com.lxt.handlol.widget.NoScrollViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp">
-        <!--layout_scrollFlags的使用用来控制滑动的时候toolbar的行为-->
-        <!--Scroll 表示向下滚动时,这个View会被滚出屏幕范围直到隐藏.-->
-        <!--enterAlways 表示向上滚动时,这个View会随着滚动手势出现,直到恢复原来的位置.-->
-        <!--自定义我们弹出的菜单的样式-->
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@color/btn_pressed_color"
-            app:layout_scrollFlags="scroll|enterAlways"
-            >
-
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <com.lxt.handlol.widget.NoScrollViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.0"/>
-
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tablayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:tabBackground="@color/btn_test"
-                app:tabIndicatorHeight="0dp"
-                app:tabSelectedTextColor="#ff7a61" />
-        </LinearLayout>
-
-
+        app:tabBackground="@color/btn_test"
+        />
+    </LinearLayout>
     <android.support.design.widget.NavigationView
         android:background="@mipmap/slide_menu_bg"
-        android:id="@+id/navigationview"
-        android:layout_width="@dimen/slide_menu_width"
+        android:id="@+id/navigation_view"
+        android:layout_gravity="left"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:overScrollMode="never"
-        app:headerLayout="@layout/slide_menu"
-
-         />
-
+        app:menu="@menu/navigation_main"
+        app:itemIconTint="#99FFFFFF"
+        app:headerLayout="@layout/slide_menu">
+        </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

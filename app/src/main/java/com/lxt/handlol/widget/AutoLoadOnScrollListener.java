@@ -26,10 +26,11 @@ public abstract class AutoLoadOnScrollListener extends RecyclerView.OnScrollList
         mItemCount = mManager.getItemCount();
         mLastVisibleItemPosition = mManager.findLastVisibleItemPosition();
 
-        if(!loading&&mLastVisibleItemPosition>mItemCount-2&&dy>0){
+        if(!loading&&mLastVisibleItemPosition>mItemCount-3&&dy>0){
             //需要加载更多
             currentPage++;
             //告诉现在要加载第几页
+            LogUtil.e("显示加载更多");
             onLoadMore(currentPage);
             loading=true;
         }

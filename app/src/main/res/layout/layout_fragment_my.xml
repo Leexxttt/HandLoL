@@ -1,13 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FF99FF"
-    >
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_my"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v4.view.ViewPager>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</LinearLayout>
+        <com.lxt.handlol.widget.StickyNavLayout2
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:background="@mipmap/header_bg_big"
+                android:id="@id/id_stickynavlayout_topview"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical">
+                <FrameLayout
+                    android:id="@+id/round_header"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="60dp"
+                    android:background="@mipmap/game_header_frame"
+                    android:tag="mta_header">
+
+                    <com.lxt.handlol.widget.CircleImageView
+                        android:id="@+id/touxiang"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/nearbydefaulthead" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="放狼的耶稣"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/sex_layout"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="游戏离线"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="|"
+                        android:textColor="#99FFFFFF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="首胜可用"
+                        android:textColor="@color/btn_pressed_color"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <android.support.design.widget.TabLayout
+                android:id="@id/id_stickynavlayout_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#15000000"></android.support.design.widget.TabLayout>
+
+            <com.lxt.handlol.widget.HorizontalScrollViewPager
+                android:id="@id/id_stickynavlayout_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.lxt.handlol.widget.HorizontalScrollViewPager>
+
+        </com.lxt.handlol.widget.StickyNavLayout2>
+    <LinearLayout
+        android:id="@+id/status_bar_my"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@mipmap/header_bg_small"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_top"
+            android:orientation="vertical"></LinearLayout>
+
+        <include layout="@layout/toolbar_my" />
+    </LinearLayout>
+</FrameLayout>

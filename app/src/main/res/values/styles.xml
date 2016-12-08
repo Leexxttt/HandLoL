@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -17,13 +16,12 @@
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
-        <item name="windowActionBar">false</item>
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
     </style>
     <style name="BaseAppTheme" parent="AppTheme.Base">
-        <item name="colorPrimary">@color/transparence</item>    <!-- 状态栏 -->
-        <item name="colorPrimaryDark">@color/transparence</item> <!-- toolbar -->
+        <item name="colorPrimary">@color/transparence</item>
+        <item name="colorPrimaryDark">@color/transparence</item>
         <item name="colorAccent">@color/transparence</item>  <!-- 重点 -->
     </style>
     <style name="AppTheme2" parent="BaseAppTheme"/>

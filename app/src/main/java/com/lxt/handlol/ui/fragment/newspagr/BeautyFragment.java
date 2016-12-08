@@ -1,6 +1,7 @@
 package com.lxt.handlol.ui.fragment.newspagr;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,19 +28,12 @@ import butterknife.ButterKnife;
  * e-mail:871281347@qq.com
  */
 
-public class BeautyFragment extends BaseFragment2  {
+public class BeautyFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-    private void getInfo1() {
 
-    }
-
-    @Override
-    public void initPage() {
-        getInfo1();
-    }
 }

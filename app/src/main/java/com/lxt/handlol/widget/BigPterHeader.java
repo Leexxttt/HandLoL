@@ -43,7 +43,7 @@ public class BigPterHeader extends FrameLayout implements PtrUIHandler {
     }
 
     private void init() {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_refresh, this);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_refresh_more, this);
         imgview = (ImageView) view.findViewById(R.id.refresh_ani);
         text = (TextView) view.findViewById(R.id.textView);
         img = (ImageView) view.findViewById(R.id.refresh);

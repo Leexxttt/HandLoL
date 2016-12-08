@@ -1,6 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparence"
+    android:orientation="vertical">
+<LinearLayout
+    android:background="#ffeeeeee"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/all_type"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:text="全部类型"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_btn_filter"
+            />
+        <Button
+
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:text="新手"
+            android:textColor="@drawable/selector_text"
+            android:background="@drawable/selector_btn_filter"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/selector_btn_filter"
+            android:id="@+id/zhanshi"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textColor="@drawable/selector_text"
+            android:text="战士"
+            />
+
+        <Button
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_btn_filter"
+            android:id="@+id/fashi"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textColor="@drawable/selector_text"
+            android:text="法师"
+            />
+        <Button
+            android:id="@+id/cike"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_btn_filter"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textColor="@drawable/selector_text"
+            android:text="刺客"
+            />
+        <Button
+            android:id="@+id/tank"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_btn_filter"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:textColor="@drawable/selector_text"
+            android:text="坦克"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/fuzhu"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/selector_btn_filter"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:text="辅助"
+            android:textColor="@drawable/selector_text"
+            />
+       <Button
+           android:id="@+id/sheshou"
+           android:layout_marginLeft="10dp"
+           android:background="@drawable/selector_btn_filter"
+           android:layout_width="70dp"
+           android:layout_height="35dp"
+           android:text="射手"
+           android:textColor="@drawable/selector_text"
+           />
+    </LinearLayout>
+</LinearLayout>
 </LinearLayout>

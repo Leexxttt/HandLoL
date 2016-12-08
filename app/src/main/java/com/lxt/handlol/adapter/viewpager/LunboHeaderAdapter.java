@@ -31,7 +31,6 @@ public class LunboHeaderAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        LogUtil.e("这是list的大小"+list.size());
         return list.size();
     }
 

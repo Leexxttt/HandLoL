@@ -14,8 +14,11 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
+import android.widget.ScrollView;
 
 import com.lxt.handlol.R;
 import com.lxt.handlol.utils.DisplayUtil;
@@ -45,7 +48,6 @@ public class StickyNavLayout2 extends LinearLayout {
 	public StickyNavLayout2(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setOrientation(LinearLayout.VERTICAL);
-
 		mScroller = new OverScroller(context);
 		//在被判定为滚动之前用户手指可以移动的最大值。
 		//这是一个距离只有当手指移动大于这个距离的时候才算是滑动
@@ -90,7 +92,7 @@ public class StickyNavLayout2 extends LinearLayout {
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		super.onSizeChanged(w, h, oldw, oldh);
 		//head的高度
-		mTopViewHeight = mTop.getMeasuredHeight()- DisplayUtil.dp2px(getContext(),50);
+		mTopViewHeight = mTop.getMeasuredHeight()- DisplayUtil.dp2px(getContext(),65);
 	}
 
 	///事件分发
@@ -113,7 +115,6 @@ public class StickyNavLayout2 extends LinearLayout {
 					 }
 					LinearLayoutManager layoutManager = (LinearLayoutManager) lv.getLayoutManager();
 					 if(layoutManager==null){
-						 LogUtil.e("走到这里了");
 						 break;
 					 }
 					int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
@@ -127,23 +128,26 @@ public class StickyNavLayout2 extends LinearLayout {
 						ev2.setAction(MotionEvent.ACTION_DOWN);
 						return dispatchTouchEvent(ev2);
 					}
-				}
+				}else if(mInnerScrollView instanceof ScrollView){
+					 ScrollView scrollView= (ScrollView) mInnerScrollView;
+					 View childAt = scrollView.getChildAt(0);
+					 LinearLayout layout= (LinearLayout) childAt;
+					 View c = layout.getChildAt(0);
+					 if(!isInControl&&isTopHidden&& dy>0&&c!=null&&scrollView.getScrollY()<=0){
+						 isInControl = true;
+						 ev.setAction(MotionEvent.ACTION_CANCEL);
+						 MotionEvent ev2 = MotionEvent.obtain(ev);
+						 dispatchTouchEvent(ev);
+						 ev2.setAction(MotionEvent.ACTION_DOWN);
+						 return dispatchTouchEvent(ev2);
+					 }
+				 }
 				break;
 		}
 		return super.dispatchTouchEvent(ev);
 	}
 
 
-	public  View supplyInfo(){
-		if (mInnerScrollView instanceof RecyclerView) {
-			RecyclerView lv = (RecyclerView) mInnerScrollView;
-			LinearLayoutManager layoutManager = (LinearLayoutManager) lv.getLayoutManager();
-			int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-			View c = lv.getChildAt(firstVisibleItemPosition);
-			return c;
-		}
-		return null;
-	}
 
 	/**事件拦截
 	 *
@@ -175,6 +179,7 @@ public class StickyNavLayout2 extends LinearLayout {
 						 * 1：top没有隐藏目的是要将top隐藏起来，滑动的是外面的view
 						 * 2:viewpager中的recyclerview的item的第一个item可见，继续向下滑就是要显示出top所以移动的也是外面的view
 						 */
+
 						if (!isTopHidden || //
 								(c != null //
 										&& c.getTop() == 0//
@@ -185,6 +190,27 @@ public class StickyNavLayout2 extends LinearLayout {
 							mLastY = y;
 							return true;
 						}
+					}else if(mInnerScrollView instanceof ScrollView){
+						ScrollView scrollView= (ScrollView) mInnerScrollView;
+						View childAt = scrollView.getChildAt(0);
+						LinearLayout layout= (LinearLayout) childAt;
+						View c = layout.getChildAt(0);
+						LogUtil.e("这是scrollview的"+scrollView.getScrollY());
+						if(!isTopHidden){
+							LogUtil.e("top没有影藏");
+							initVelocityTrackerIfNotExists();
+							mVelocityTracker.addMovement(ev);
+							mLastY = y;
+							return true;
+						}
+						if(isTopHidden&&dy>0&&c!=null&&scrollView.getScrollY()<=0){
+							LogUtil.e("需要显示出Top");
+							initVelocityTrackerIfNotExists();
+							mVelocityTracker.addMovement(ev);
+							mLastY = y;
+							return true;
+						}
+
 					}
 
 				}
@@ -209,12 +235,6 @@ public class StickyNavLayout2 extends LinearLayout {
 			FragmentPagerAdapter fadapter = (FragmentPagerAdapter) a;
 			Fragment item = (Fragment) fadapter.instantiateItem(mViewPager,
 					currentItem);
-			LogUtil.e("这是currentItem"+currentItem);
-			if(item.getView()==null){
-				LogUtil.e("为null");
-			}else {
-				LogUtil.e("没有");
-			}
 			//Get the root view for the fragment's layout 获取他的父亲布局
 			//通过父布局来获得其中的滑动布局
 			mInnerScrollView = (ViewGroup) (item.getView()

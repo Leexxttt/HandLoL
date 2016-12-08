@@ -3,8 +3,9 @@
     package="com.lxt.handlol">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".HandLoLAPP"
         android:allowBackup="true"
@@ -12,8 +13,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.SplashActivity"
-            android:theme="@style/SplashAppTheme">
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,12 +24,16 @@
         </activity>
         <activity
             android:name=".ui.activity.MainActivity"
-            android:theme="@style/AppTheme2"></activity>
-        <activity android:name=".ui.activity.ArticleDetatileActivity"
-            android:theme="@style/AppTheme2"
-            android:configChanges="orientation|screenSize"></activity>
-        <activity android:name=".ui.activity.TuJiViewpagerActivity"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".ui.activity.ArticleDetatileActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".ui.activity.TuJiViewpagerActivity"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".ui.activity.SearchActivity" />
+        <activity android:name=".ui.activity.HeroDataActivity"></activity>
     </application>
 
 </manifest>

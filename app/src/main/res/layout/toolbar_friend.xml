@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar android:background="@mipmap/header_bg_small"
-    android:id="@+id/toolbar"
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar_friend"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    app:layout_behavior="com.lxt.handlol.widget.ToolbarAlphaBehavior2"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    android:layout_height="40dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="40dp">
 
-        <include layout="@layout/toolbar_photo" />
+        <include layout="@layout/toolbar_photo"
+            />
         <LinearLayout
+            android:layout_marginBottom="5dp"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:gravity="center"
@@ -70,7 +71,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:padding="15dp"
+            android:padding="10dp"
             android:src="@drawable/add_friends_selector" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

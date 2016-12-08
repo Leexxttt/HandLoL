@@ -8,4 +8,7 @@
     <dimen name="text_size_4">15.0sp</dimen>
     <dimen name="text_size_7">12.0sp</dimen>
     <dimen name="header_height">250dp</dimen>
+    <dimen name="slidingmenu_offset">300dp</dimen>
+    <dimen name="padding_top">0dp</dimen>
+    <dimen name="toolbarheight">?attr/actionBarSize</dimen>
 </resources>

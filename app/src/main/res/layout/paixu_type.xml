@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ffeeeeee"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+
+                    <Button
+                        android:id="@+id/zhanshi"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_btn_filter"
+                        android:text="默认"
+                        android:textColor="@drawable/selector_text" />
+
+                    <Button
+                        android:id="@+id/fashi"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_btn_filter"
+                        android:text="物攻"
+                        android:textColor="@drawable/selector_text" />
+
+                    <Button
+                        android:id="@+id/cike"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_btn_filter"
+                        android:text="法伤"
+                        android:textColor="@drawable/selector_text" />
+
+                    <Button
+                        android:id="@+id/tank"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_btn_filter"
+                        android:text="防御"
+                        android:textColor="@drawable/selector_text" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <Button
+                        android:id="@+id/caozuo"
+                        android:layout_width="70dp"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/selector_btn_filter"
+                        android:text="操作"
+                        android:textColor="@drawable/selector_text" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>

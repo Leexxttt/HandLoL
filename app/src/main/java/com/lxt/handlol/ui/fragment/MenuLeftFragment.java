@@ -12,14 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.lxt.handlol.R;
+
 public class MenuLeftFragment extends Fragment
 {
 	private View mView;
-	private ListView mCategories;
-	private List<String> mDatas = Arrays
-			.asList("聊天", "发现", "通讯录", "朋友圈", "订阅号");
-	private ListAdapter mAdapter;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
@@ -33,11 +30,6 @@ public class MenuLeftFragment extends Fragment
 
 	private void initView(LayoutInflater inflater, ViewGroup container)
 	{
-		mView = inflater.inflate(R.layout.left_menu, container, false);
-		mCategories = (ListView) mView
-				.findViewById(R.id.id_listview_categories);
-		mAdapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, mDatas);
-		mCategories.setAdapter(mAdapter);
+		mView = inflater.inflate(R.layout.slide_menu, container, false);
 	}
 }

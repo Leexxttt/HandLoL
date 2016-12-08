@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.lxt.handlol.R;
 import com.lxt.handlol.adapter.recycleview.RecycleLatestAdapter;
@@ -39,12 +42,17 @@ public class LatstNewsFragment2 extends Fragment {
     private View view;
     public RecyclerView mListView;
     private LinearLayoutManager manager;
-
+    private RelativeLayout mLoadingFail;
+    private TextView reload;
+    private LinearLayout progressbar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_tab,container,false);
         mListView = (RecyclerView) view
                 .findViewById(R.id.id_stickynavlayout_innerscrollview);
+        mLoadingFail= (RelativeLayout) view.findViewById(R.id.loadingfail);
+        reload= (TextView) view.findViewById(R.id.click_reload);
+        progressbar= (LinearLayout) view.findViewById(R.id.progressbar);
         getInfo();
         return view;
     }
@@ -66,6 +74,8 @@ public class LatstNewsFragment2 extends Fragment {
                         if (zuixinBean.getList() == null) {
                             LogUtil.e("加载失败这是最新界面");
                         } else {
+                            progressbar.setVisibility(View.INVISIBLE);
+                            mLoadingFail.setVisibility(View.INVISIBLE);
                             LogUtil.e("加载成功");
                             if(zuixinBean.getNext().equals("True")){
                                 //还有下一页
@@ -93,10 +103,28 @@ public class LatstNewsFragment2 extends Fragment {
                     @Override
                     public void call(Throwable throwable) {
                         LogUtil.e("最新页面加载失败");
+                        progressbar.setVisibility(View.INVISIBLE);
+                        initEmptyView();
                     }
                 });
 
     }
+
+    private void initEmptyView() {
+        //页面加载失败要加载的页面
+        mLoadingFail.setVisibility(View.VISIBLE);
+        mLoadingFail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.e("点击重新加载");
+                progressbar.setVisibility(View.VISIBLE);
+                getInfo();
+
+            }
+        });
+
+    }
+
 
     private void loadmore() {
         RetrofitHelper.builder().getLatestServices().getLatestinfo("12",next_page,"android","9709")

@@ -1,78 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<in.srain.cube.views.ptr.PtrFrameLayout
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/store_house_ptr_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"><![CDATA[
-     >
-]]>
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/news_toolbar"
+    cube_ptr:ptr_duration_to_close="300"
+    cube_ptr:ptr_duration_to_close_header="2000"
+    cube_ptr:ptr_keep_header_when_refresh="true"
+    cube_ptr:ptr_pull_to_fresh="false"
+    cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+    cube_ptr:ptr_resistance="1.7">
+    <FrameLayout
+        android:id="@+id/framelayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#000000"
-        app:layout_behavior="com.lxt.handlol.widget.ToolbarAlphaBehavior2">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <com.lxt.handlol.widget.CircleImageView
-                android:id="@+id/touxiang"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/nearbydefaulthead" />
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="英雄联盟"
-                android:textColor="@color/btn_pressed_color"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerInParent="true"
-                android:padding="15dp"
-                android:src="@drawable/barcode_icon_press" />
-        </RelativeLayout>
-    </android.support.v7.widget.Toolbar>
-
+        android:layout_height="match_parent">
     <com.lxt.handlol.widget.StickyNavLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_content">
-
         <RelativeLayout
             android:id="@id/id_stickynavlayout_topview"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="180dp"
             >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewpager_head"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             </android.support.v4.view.ViewPager>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/focus_point"
+                    android:layout_gravity="bottom|center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+                </LinearLayout>
+            </FrameLayout>
         </RelativeLayout>
         <android.support.design.widget.TabLayout
             android:id="@id/id_stickynavlayout_indicator"
             android:layout_width="match_parent"
-            android:layout_height="45dp">
+            android:layout_height="40dp">
         </android.support.design.widget.TabLayout>
 
-        <android.support.v4.view.ViewPager
+        <com.lxt.handlol.widget.HorizontalScrollViewPager
             android:id="@id/id_stickynavlayout_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
            >
-        </android.support.v4.view.ViewPager>
+        </com.lxt.handlol.widget.HorizontalScrollViewPager>
     </com.lxt.handlol.widget.StickyNavLayout>
-</FrameLayout>
+ <LinearLayout
+        android:id="@+id/topview"
+        android:background="@mipmap/header_bg_small"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_top"/>
+   <include layout="@layout/toolbar_news"/>
+    </LinearLayout>
+        </FrameLayout>
+</in.srain.cube.views.ptr.PtrFrameLayout>

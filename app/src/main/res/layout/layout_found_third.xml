@@ -6,25 +6,27 @@
     android:orientation="horizontal"
     android:gravity="center"
     >
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:gravity="center"
-    >
-    <ImageView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/hero_info"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:src="@mipmap/tab_news_checked"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="英雄资料"
-        android:textColor="#000000"
-        android:textSize="16sp"/>
-</LinearLayout>
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ziliaohhero"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="英雄资料"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,9 +36,9 @@
         android:gravity="center"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/tab_news_checked"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/selecmaster"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -54,9 +56,9 @@
         android:gravity="center"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/tab_news_checked"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/wanjia"
             />
         <TextView
             android:layout_width="wrap_content"

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparence"
+    android:orientation="vertical">
+    <LinearLayout
+        android:background="#ffeeeeee"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/selector_btn_filter"
+                android:id="@+id/all"
+                android:layout_weight="1"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:textColor="@drawable/selector_text"
+                android:text="全部"
+                />
+
+            <Button
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_btn_filter"
+                android:id="@+id/shangdan"
+                android:layout_weight="1"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:textColor="@drawable/selector_text"
+                android:text="上单"
+                />
+            <Button
+                android:id="@+id/zhongdan"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_btn_filter"
+                android:layout_weight="1"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:textColor="@drawable/selector_text"
+                android:text="中单"
+                />
+            <Button
+                android:id="@+id/adc"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_btn_filter"
+                android:layout_weight="1"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:textColor="@drawable/selector_text"
+                android:text="ADC"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/fuzhu"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/selector_btn_filter"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:text="辅助"
+                android:textColor="@drawable/selector_text"
+                />
+            <Button
+                android:id="@+id/daye"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/selector_btn_filter"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:text="打野"
+                android:textColor="@drawable/selector_text"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

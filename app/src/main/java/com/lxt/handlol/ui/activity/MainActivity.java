@@ -1,32 +1,30 @@
 package com.lxt.handlol.ui.activity;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivity;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingActivityHelper;
-import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.lxt.handlol.R;
-import com.lxt.handlol.base.BaseActivity;
 import com.lxt.handlol.ui.fragment.FoundFragment;
 import com.lxt.handlol.ui.fragment.FriendsFragment;
-import com.lxt.handlol.ui.fragment.MenuLeftFragment;
 import com.lxt.handlol.ui.fragment.MyFragment;
 import com.lxt.handlol.ui.fragment.NewsFragment;
 
@@ -36,12 +34,14 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends SlidingFragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private List<Fragment> fragmentList = new ArrayList<>();
     private ViewPager mViewpager;
     private SampleFragmentPagerAdapter mAdapter;
     private TabLayout mTablayout;
+    private DrawerLayout drawerlayout;
+    private NavigationView navigationView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,34 +49,27 @@ public class MainActivity extends SlidingFragmentActivity {
         // 去掉标题, 必须在setContentView之前执行
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        // 添加侧边栏
-        setBehindContentView(R.layout.slide_menu);
-        SlidingMenu slidingMenu = getSlidingMenu();
-        // 全屏触摸
-        slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        // 屏幕预留200像素
-        slidingMenu.setBehindOffset(200);
-        // 初始化SlideMenu
-        initLeftMenu();
-        // 初始化ViewPager
+        initDrawerLayout();
         initViewPager();
         initView();
-        //实现沉浸式状态栏
-//        StatusBar();
-//        addStatusBarView();
+       StatusBar();
     }
-    private void addStatusBarView() {
-        View view = new View(this);
-        view.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                getStatusBarHeight(this));
-        ViewGroup decorView = (ViewGroup) findViewById(android.R.id.content);
-        decorView.addView(view, params);
+
+    private void initDrawerLayout() {
+        drawerlayout = (DrawerLayout) findViewById(R.id.drawerlayout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        Resources resource=getResources();
+        ColorStateList csl=(ColorStateList)resource.getColorStateList(R.color.white);
+        navigationView.setItemTextColor(csl);
+        navigationView.setItemBackgroundResource(R.drawable.menu_item_selector);
+
     }
-    public int getStatusBarHeight(Context context) {
-        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        return context.getResources().getDimensionPixelSize(resourceId);
+
+
+    public void closeLeftMenu(){
+        drawerlayout.openDrawer(Gravity.LEFT);
     }
+
     private void StatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
             View decorView = getWindow().getDecorView();
@@ -98,18 +91,6 @@ public class MainActivity extends SlidingFragmentActivity {
         fragmentList.add(MyFragment.getInstance());
         mAdapter=new SampleFragmentPagerAdapter(getSupportFragmentManager(),this);
         mViewpager.setAdapter(mAdapter);
-    }
-
-    private void initLeftMenu() {
-        Fragment leftMenuFragment = new MenuLeftFragment();
-        setBehindContentView(R.layout.left_menu_frame);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.id_left_menu_frame, leftMenuFragment).commit();
-        SlidingMenu menu = getSlidingMenu();
-        menu.setMode(SlidingMenu.LEFT);
-        // 全屏触摸
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        menu.setBehindOffset(200);
     }
 
     public void initView() {
@@ -232,19 +213,4 @@ public class MainActivity extends SlidingFragmentActivity {
             return tabTitles[position];
         }
     }
-
-    public void showLeftMenu(View view)
-    {
-        getSlidingMenu().showMenu();
-    }
-//    public void initToolBar() {
-//        // mToolbar.setTitle("");
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            Window window = getWindow();
-//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor(Color.TRANSPARENT);
-//        }
-//    }
 }

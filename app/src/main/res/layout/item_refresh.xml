@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+   >
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下拉刷新"
+        android:id="@+id/textView"
+        android:layout_below="@+id/refresh_ani"
+        android:layout_alignRight="@+id/refresh_ani"
+        android:layout_alignEnd="@+id/refresh_ani" />
+
+    <ImageView
+        android:id="@+id/refresh_ani"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:src="@drawable/teemo_animation"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+         />
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/refresh"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:src="@drawable/teemo_5"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/refresh_ani"
+        android:layout_alignStart="@+id/refresh_ani"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
+</RelativeLayout>

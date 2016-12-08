@@ -6,11 +6,11 @@
    >
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="60dp">
     <ImageView
         android:paddingLeft="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:src="@mipmap/shequ"
         android:layout_gravity="center"
         />

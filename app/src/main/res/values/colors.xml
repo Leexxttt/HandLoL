@@ -25,4 +25,17 @@
     <color name="first_win_color">#ff3e4673</color>
     <color name="normal_bkg">#ff1c201f</color>
     <color name="notice_board_bg">#bb000000</color>
+    <color name="one">#c3e3e5</color>
+    <color name="two">#85cdd4</color>
+    <color name="three">#48afb6</color>
+    <color name="four">#22737b</color>
+    <color name="font_black_5">#bdbdbd</color>
+    <color name="font_black_6">#e0e0e0</color>
+    <color name="gray">#cccccc</color>
+    <color name="drop_down_selected">#7B1FA2</color>
+    <color name="drop_down_unselected">#111111</color>
+    <color name="mask_color">@android:color/transparent</color>
+    <color name="check_bg">#f2f2f2</color>
+    <color name="un_press_color">#9C27B0</color>
+    <color name="tab_selected2">#ffeeeeee</color>
 </resources>

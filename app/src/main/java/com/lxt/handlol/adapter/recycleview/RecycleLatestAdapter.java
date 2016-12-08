@@ -87,12 +87,13 @@ public class RecycleLatestAdapter extends RecyclerView.Adapter<RecyclerView.View
                     .into(tujiViewHolder.mPicBot);
             tujiViewHolder.mNumPic.setText( bean.getCount());
             final String artid=bean.getArticle_id();
+            final String article_url = bean.getArticle_url();
             tujiViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     LogUtil.e("点击了图集"+bean.getArticle_id());
                     //将文章的id传过去即可
-                    TuJiViewpagerActivity.lanuch(context,artid);
+                    TuJiViewpagerActivity.lanuch(context,artid,article_url);
 
                 }
             });

@@ -2,6 +2,7 @@ package com.lxt.handlol.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import butterknife.ButterKnife;
 
@@ -14,6 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //设置布局文件
         setContentView(getLayoutId());
         //初始化黄油刀控件

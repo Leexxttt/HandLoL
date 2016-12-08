@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="40dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="8dp"
+    android:background="#05000000"
+    ></LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的战绩"
+            android:layout_gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/chose_which"
+            android:layout_marginLeft="3dp"
+            android:src="@mipmap/arrow_fold_down_role_center_normal"
+            android:layout_width="15dp"
+            android:layout_height="15dp" />
+    </LinearLayout>
 </LinearLayout>

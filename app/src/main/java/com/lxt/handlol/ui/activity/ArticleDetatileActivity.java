@@ -2,23 +2,14 @@ package com.lxt.handlol.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.DownloadListener;
-import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import com.lxt.handlol.R;
 import com.lxt.handlol.base.BaseActivity;
@@ -40,13 +31,18 @@ public class ArticleDetatileActivity extends BaseActivity {
     private static final String EXTRA_ID = "extra_id";
     //    @Bind(R.id.progressBar)
 //    ProgressBar mProgressBar;
-    @Bind(R.id.webview)
-    ProgressWebView mWebview;
     @Bind(R.id.video_fullView)
     FrameLayout mVideoFullView;
+    @Bind(R.id.back)
+    ImageButton mBack;
+    @Bind(R.id.share)
+    ImageButton mShare;
+    @Bind(R.id.webview)
+    ProgressWebView mWebview;
     private View xCustomView;
     private String articleurl;
     private WebChromeClient.CustomViewCallback xCustomViewCallback;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_article;
@@ -54,6 +50,22 @@ public class ArticleDetatileActivity extends BaseActivity {
 
     @Override
     public void initToolBar() {
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        mShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT,"分享");
+                intent.putExtra(Intent.EXTRA_TEXT,"来自「掌上英雄联盟」的分享:"+articleurl);
+                startActivity(Intent.createChooser(intent,"来自「掌上英雄联盟」的分享"));
+            }
+        });
 
     }
 

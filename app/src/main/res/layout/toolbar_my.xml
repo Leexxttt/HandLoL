@@ -1,70 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
-    android:background="@mipmap/header_bg_small"
-    android:id="@+id/toolbar_friend"
+    android:id="@+id/toolbar_my"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    app:layout_behavior="com.lxt.handlol.widget.ToolbarAlphaBehavior2"
+    android:layout_height="40dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="40dp">
 
         <include layout="@layout/toolbar_photo" />
         <LinearLayout
+            android:id="@+id/daqu"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:gravity="center"
             android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_friends"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:text="好友"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <ImageView
-                    android:id="@+id/friend_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/pager_tab_selected" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_news"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:clickable="true"
-                    android:text="消息"
-                    android:textColor="@color/common_yellow_color"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/news_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:src="@mipmap/pager_tab_selected"
-                    android:visibility="invisible" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/qufu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="祖安"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/btn_pressed_color"
+            android:textSize="18sp"
+            />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/title_down"
+            android:layout_toRightOf="@id/qufu"
+            />
         </LinearLayout>
-
+        <RelativeLayout
+            android:visibility="invisible"
+            android:id="@+id/user_info"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp">
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="放狼的耶稣"
+            android:textColor="@color/btn_pressed_color"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/levle"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lv30|"
+            android:textSize="10sp"
+            android:textColor="@color/btn_pressed_color"
+            android:layout_below="@id/user_name"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="祖安"
+                android:textSize="10sp"
+                android:textColor="@color/btn_pressed_color"
+                android:layout_below="@id/user_name"
+                android:layout_toRightOf="@id/levle"
+                />
+        </RelativeLayout>
         <ImageView
             android:id="@+id/add_info"
             android:layout_width="wrap_content"
@@ -72,7 +75,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:padding="15dp"
-            android:src="@drawable/add_friends_selector" />
+            android:padding="12dp"
+            android:src="@mipmap/share_icon_normal" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>

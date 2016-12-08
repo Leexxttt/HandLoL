@@ -28,7 +28,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitHelper {
     public static String splash_img = "http://183.203.24.22/dlied1.qq.com/qqtalk/lolApp/images/qidong/qidong-android.jpg?mkey=57ef5fd4740a3e85&f=b110&c=0&p=.jpg";
     public static String base_lunbo_url="http://qt.qq.com/";
-
+    public static String zhanji_url="http://handlol.duapp.com/";
+    public static String heroInfo="http://ossweb-img.qq.com/";
     public static OkHttpClient mOkHttpClient;
     public static final int CACHE_TIME_LONG = 60 * 60 * 24 * 7;
 
@@ -104,6 +105,36 @@ public class RetrofitHelper {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
         return retrofit.create(GonglueService.class);
+    }
+    //获取个人战绩信息
+    public static  ZhanjiService getzhanji(){
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(zhanji_url)
+                .client(mOkHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(ZhanjiService.class);
+    }
+    //获取所有英雄信息信息
+    public static  HeroService getheroInfo(){
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(zhanji_url)
+                .client(mOkHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(HeroService.class);
+    }
+    //获取周免英雄信息信息
+    public static  FreeHeroService getFreeInfo(){
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(zhanji_url)
+                .client(mOkHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(FreeHeroService.class);
     }
 
     /**

@@ -56,6 +56,8 @@ public class ActivityFragment extends BaseFragment2 {
                                    if (mainContent.getList() == null) {
                                        LogUtil.e("加载失败");
                                    } else {
+                                       loadfail.setVisibility(View.INVISIBLE);
+                                       progressbar.setVisibility(View.INVISIBLE);
                                        LogUtil.e("加载成功");
                                        next_page = mainContent.getNext();
                                        huodonglist = mainContent.getList();
@@ -77,13 +79,29 @@ public class ActivityFragment extends BaseFragment2 {
                            }, new Action1<Throwable>() {
                                @Override
                                public void call(Throwable throwable) {
-                                   LogUtil.e("再一次加载失败啦");
+                                   LogUtil.e("再一次加载失败啦活动");
+                                   progressbar.setVisibility(View.INVISIBLE);
+                                   initEmptyView();
                                }
                            }
                 );
 
     }
+    private void initEmptyView() {
+        //页面加载失败要加载的页面
+        progressbar.setVisibility(View.INVISIBLE);
+        loadfail.setVisibility(View.VISIBLE);
+        loadfail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.e("点击重新加载");
+                progressbar.setVisibility(View.VISIBLE);
+                getInfo();
 
+            }
+        });
+
+    }
     private void loadmore(final int currentPage) {
         RetrofitHelper.builder().getHuodongServices().getHuodonginfo(next_page)
                 .subscribeOn(Schedulers.io())

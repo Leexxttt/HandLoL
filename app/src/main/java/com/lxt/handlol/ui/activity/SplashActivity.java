@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -58,27 +59,24 @@ public class SplashActivity extends AppCompatActivity {
         initImg();
     }
     private void StatusBar() {
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             decorView.setSystemUiVisibility(option);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {//4.4到5.0
+            WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+            localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
         }
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
     }
 
     private void initImg() {
-        Glide.with(HandLoLAPP.getContext())
-                .load("http://183.203.24.22/dlied1.qq.com/qqtalk/lolApp/images/qidong/qidong-android.jpg?mkey=57ef5fd4740a3e85&f=b110&c=0&p=.jpg")
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.mipmap.start_up)
-                .into(mImageView);
-        boolean mobileConnected = NetWorkUtil.isMobileConnected();
-        if (!mobileConnected) {
-            Toast.makeText(this, "没有可用的网络哦！", Toast.LENGTH_SHORT).show();
-        }
-        handler.sendEmptyMessageDelayed(0, 3000);
-    }
+                Glide.with(HandLoLAPP.getContext())
+                        .load("http://183.203.24.22/dlied1.qq.com/qqtalk/lolApp/images/qidong/qidong-android.jpg?mkey=57ef5fd4740a3e85&f=b110&c=0&p=.jpg")
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .error(R.mipmap.start_up)
+                        .into(mImageView);
+                handler.sendEmptyMessageDelayed(0, 3000);
+            }
 }
